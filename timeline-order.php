@@ -9,6 +9,11 @@ class Timeline_Order
     /**
      *
      */
+    private $_version = '0.2';
+
+    /**
+     *
+     */
     public function __construct()
     {
         add_filter( 'posts_orderby', array( &$this, 'everest_timeline_order' ) );
