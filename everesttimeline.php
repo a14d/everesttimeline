@@ -48,9 +48,9 @@ class EverestTimeline
         // add_meta_box( $id, $title, $callback, $post_type, $context, $priority, $callback_args )
         add_meta_box(
             $this->_field_name,
-            'Date',
+            'Announcement Info.',
             array( &$this, 'render_metaboxes_fields' ),
-            $post_type, 'normal', 'high'
+            $post_type, 'advanced', 'high'
         );
     }
 
@@ -65,13 +65,21 @@ class EverestTimeline
         // Use get_post_meta to retrieve an existing value from the database.
         $timeline_date = get_post_meta( $post->ID, $this->_field_name, true ); ?>
 
-        <table>
+        <table class="form-table">
             <tr>
                 <td>
-                    <label for="timelinedate">Date</label>
+                    <label for="timelinedate">Announcement Color</label>
                 </td>
                 <td>
                     <input type="text" id="timelinedate" name="<?php echo $this->_field_name; ?>" value="<?php echo esc_attr( $timeline_date ); ?>">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="timelinedate">Announcement Icon</label>
+                </td>
+                <td>
+                    <input type="text" id="timelineicon" name="<?php echo $this->_field_name; ?>" value="<?php echo esc_attr( $timeline_date ); ?>">
                 </td>
             </tr>
         </table>
